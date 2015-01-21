@@ -13,14 +13,16 @@ import java.util.ArrayList;
  */
 public class SSEntityRegistry {
 
-    public static ArrayList<Entity> entities = new ArrayList<Entity>();
-
     private static int startID = 400;
 
+    @SuppressWarnings("unchecked")
     public static void registerEntity (Entity entity){
         if (!(entity instanceof SSheepEntity)) { SteelSheep.logger.error("The entity specified (" + entity + ") did not include any of the required fields"); return; }
 
-        EntityRegistry.registerModEntity(entity.getClass(),((SSheepEntity)entity).getEntityName(),getUniqueId(),SteelSheep.instance,80,3,false);
+        int newId = getUniqueId();
+
+        EntityRegistry.registerModEntity(entity.getClass(),((SSheepEntity)entity).getEntityName(),newId,SteelSheep.instance,80,3,false);
+        EntityList.entityEggs.put(newId,new EntityList.EntityEggInfo(newId,((SSheepEntity) entity).getEggColors()[0],((SSheepEntity) entity).getEggColors()[1]));
 
         SteelSheep.logger.info("Registered the entity " + entity + " successfully! (Name: " + ((SSheepEntity) entity).getEntityName() + ")");
 
