@@ -1,0 +1,13 @@
+friend.color.set=You have set %s's color. Changes will take effect on re-log.
+friend.color.example=This is what the name will appear like!
+friend.exist.not=That player does not exist!
+friend.already=They are already your friend, silly!
+
+friend.list=Your Friends (and Colors):
+friend.list.name=%s:
+friend.list.uuid= -UUID: %s
+friend.list.color= -Color: %s
+
+message.header.divider=~~~~~~~~~~
+
+command.friend.usage=/friend <add/remove/list/setColor> <player> (color)
