@@ -4,9 +4,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import mc.Mitchellbrine.steelSheep.SteelSheep;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
-import net.minecraft.entity.passive.EntitySheep;
-
-import java.util.ArrayList;
 
 /**
  * Created by Mitchellbrine on 2015.
@@ -22,9 +19,10 @@ public class SSEntityRegistry {
         int newId = getUniqueId();
 
         EntityRegistry.registerModEntity(entity.getClass(),((SSheepEntity)entity).getEntityName(),newId,SteelSheep.instance,80,3,false);
+        EntityList.IDtoClassMapping.put(newId,entity.getClass());
         EntityList.entityEggs.put(newId,new EntityList.EntityEggInfo(newId,((SSheepEntity) entity).getEggColors()[0],((SSheepEntity) entity).getEggColors()[1]));
 
-        SteelSheep.logger.info("Registered the entity " + entity + " successfully! (Name: " + ((SSheepEntity) entity).getEntityName() + ")");
+        SteelSheep.logger.info("Registered the entity " + entity + " successfully! (Name: " + EntityList.stringToClassMapping.get(entity.getClass()) + ")");
 
     }
 

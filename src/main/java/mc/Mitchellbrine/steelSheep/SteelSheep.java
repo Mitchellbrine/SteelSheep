@@ -8,6 +8,8 @@ import mc.Mitchellbrine.steelSheep.block.BlockRegistry;
 import mc.Mitchellbrine.steelSheep.entity.SSEntityRegistry;
 import mc.Mitchellbrine.steelSheep.item.ItemRegistry;
 import mc.Mitchellbrine.steelSheep.proxy.CommonProxy;
+import mc.Mitchellbrine.steelSheep.util.OreDictionaryHelper;
+import mc.Mitchellbrine.steelSheep.util.RecipeHelper;
 import mc.Mitchellbrine.steelSheep.util.References;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +34,8 @@ public class SteelSheep {
         BlockRegistry.init();
         ItemRegistry.init();
         new SSEntityRegistry();
+        OreDictionaryHelper.init();
+        RecipeHelper.init();
 
         proxy.renderStuff();
 

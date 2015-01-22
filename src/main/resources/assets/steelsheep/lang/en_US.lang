@@ -1,13 +1,6 @@
-friend.color.set=You have set %s's color. Changes will take effect on re-log.
-friend.color.example=This is what the name will appear like!
-friend.exist.not=That player does not exist!
-friend.already=They are already your friend, silly!
+death.attack.tetanus=%s was pricked to death by metal
+entity.SteelSheep.steelSheep.name=Steel Sheep
 
-friend.list=Your Friends (and Colors):
-friend.list.name=%s:
-friend.list.uuid= -UUID: %s
-friend.list.color= -Color: %s
+item.SSheepSteelIngot.name=Steel Ingot
 
-message.header.divider=~~~~~~~~~~
-
-command.friend.usage=/friend <add/remove/list/setColor> <player> (color)
+tile.steelWool.name=Steel Wool
