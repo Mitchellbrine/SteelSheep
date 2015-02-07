@@ -29,16 +29,14 @@ public class ItemRegistry {
 
     public static void init() {
 
-        if (Loader.isModLoaded("RailCraft") || Loader.isModLoaded("Metallurgy") || Loader.isModLoaded("Artifice") || Loader.isModLoaded("TConstruct") || Loader.isModLoaded("Mekanism")) {
-            steelIngot = new SSheepItem().setCreativeTab(CreativeTabs.tabBlock).setUnlocalizedName("SSheepSteelIngot").setTextureName(References.MODID.toLowerCase() + ":steelIngot");
-        }
+        steelIngot = new SSheepItem().setUnlocalizedName("SSheepSteelIngot").setTextureName(References.MODID.toLowerCase() + ":steelIngot");
 
-        steelWool = new SSheepItem().setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("SteelWoolItem").setTextureName(References.MODID.toLowerCase() + ":steelWool");
+        steelWool = new SSheepItem().setUnlocalizedName("SteelWoolItem").setTextureName(References.MODID.toLowerCase() + ":steelWool");
 
-        steelWoolBoots = new SteelWoolArmor(steelWoolArmor, SteelSheep.proxy.addArmorPrefix("STEELWOOL"),3).setUnlocalizedName("steelWoolBoots").setTextureName(References.MODID.toLowerCase() + ":steelwool_boots");
-        steelWoolLeggings = new SteelWoolArmor(steelWoolArmor,SteelSheep.proxy.addArmorPrefix("STEELWOOL"),2).setUnlocalizedName("steelWoolLegs").setTextureName(References.MODID.toLowerCase() + ":steelwool_legs");
-        steelWoolChest = new SteelWoolArmor(steelWoolArmor,SteelSheep.proxy.addArmorPrefix("STEELWOOL"),1).setUnlocalizedName("steelWoolChest").setTextureName(References.MODID.toLowerCase() + ":steelwool_chest");
         steelWoolHelmet = new SteelWoolArmor(steelWoolArmor,SteelSheep.proxy.addArmorPrefix("STEELWOOL"),0).setUnlocalizedName("steelWoolHelmet").setTextureName(References.MODID.toLowerCase() + ":steelwool_helmet");
+        steelWoolChest = new SteelWoolArmor(steelWoolArmor,SteelSheep.proxy.addArmorPrefix("STEELWOOL"),1).setUnlocalizedName("steelWoolChest").setTextureName(References.MODID.toLowerCase() + ":steelwool_chest");
+        steelWoolLeggings = new SteelWoolArmor(steelWoolArmor,SteelSheep.proxy.addArmorPrefix("STEELWOOL"),2).setUnlocalizedName("steelWoolLegs").setTextureName(References.MODID.toLowerCase() + ":steelwool_legs");
+        steelWoolBoots = new SteelWoolArmor(steelWoolArmor, SteelSheep.proxy.addArmorPrefix("STEELWOOL"),3).setUnlocalizedName("steelWoolBoots").setTextureName(References.MODID.toLowerCase() + ":steelwool_boots");
 
         // You are now done adding items
 

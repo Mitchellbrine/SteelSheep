@@ -1,7 +1,9 @@
 package mc.Mitchellbrine.steelSheep.item;
 
+import mc.Mitchellbrine.steelSheep.SteelSheep;
 import mc.Mitchellbrine.steelSheep.entity.EntitySteelSheep;
 import mc.Mitchellbrine.steelSheep.util.References;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -9,6 +11,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -19,6 +22,7 @@ public class SteelWoolArmor extends ItemArmor {
 
 	public SteelWoolArmor(ArmorMaterial p_i45325_1_, int p_i45325_2_, int p_i45325_3_) {
 		super(p_i45325_1_, p_i45325_2_, p_i45325_3_);
+		this.setCreativeTab(SteelSheep.steelSheepTab);
 		ItemRegistry.items.add(this);
 	}
 
@@ -50,6 +54,9 @@ public class SteelWoolArmor extends ItemArmor {
 							ItemStack newStack = new ItemStack(Items.chainmail_helmet, 1, damage);
 							newStack.setTagCompound(compound);
 							player.setCurrentItemOrArmor(4, newStack);
+							if (!player.worldObj.isRemote) {
+								player.worldObj.playSoundAtEntity(player,"random.fizz",5.0F,1.0F);
+							}
 						}
 					}
 					if (player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem() == ItemRegistry.steelWoolChest) {
@@ -59,6 +66,9 @@ public class SteelWoolArmor extends ItemArmor {
 							ItemStack newStack = new ItemStack(Items.chainmail_chestplate, 1, damage);
 							newStack.setTagCompound(compound);
 							player.setCurrentItemOrArmor(3, newStack);
+							if (!player.worldObj.isRemote) {
+								player.worldObj.playSoundAtEntity(player,"random.fizz",5.0F,1.0F);
+							}
 						}
 					}
 				}
@@ -71,6 +81,9 @@ public class SteelWoolArmor extends ItemArmor {
 							ItemStack newStack = new ItemStack(Items.chainmail_leggings, 1, damage);
 							newStack.setTagCompound(compound);
 							player.setCurrentItemOrArmor(2, newStack);
+							if (!player.worldObj.isRemote) {
+								player.worldObj.playSoundAtEntity(player,"random.fizz",5.0F,1.0F);
+							}
 						}
 					}
 					if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem() == ItemRegistry.steelWoolBoots) {
@@ -80,11 +93,39 @@ public class SteelWoolArmor extends ItemArmor {
 							ItemStack newStack = new ItemStack(Items.chainmail_boots, 1, damage);
 							newStack.setTagCompound(compound);
 							player.setCurrentItemOrArmor(1, newStack);
+							if (!player.worldObj.isRemote) {
+								player.worldObj.playSoundAtEntity(player,"random.fizz",5.0F,1.0F);
+							}
 						}
 					}
 				}
 			}
 
+		}
+	}
+
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean par5) {
+		if (!stack.hasTagCompound()) {
+			stack.setTagCompound(new NBTTagCompound());
+		}
+
+		boolean hasThorns = false;
+
+		if (stack.stackTagCompound.getTag("ench") != null) {
+			NBTTagList enchants = (NBTTagList) stack.stackTagCompound.getTag("ench");
+
+			for (int i = 0; i < enchants.tagCount(); i++) {
+				NBTTagCompound enchant = ((NBTTagList) enchants).getCompoundTagAt(i);
+				if (enchant.getInteger("id") == 7) {
+					hasThorns = true;
+					break;
+				}
+			}
+		}
+
+		if (!hasThorns) {
+			stack.addEnchantment(Enchantment.thorns,1);
 		}
 	}
 }

@@ -1,5 +1,6 @@
 package mc.Mitchellbrine.steelSheep.client.render;
 
+import mc.Mitchellbrine.steelSheep.entity.EntitySteelSheep;
 import net.minecraft.client.model.ModelQuadruped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelSheep2;
@@ -13,6 +14,7 @@ import net.minecraft.util.MathHelper;
  */
 public class ModelSSheep2 extends ModelQuadruped {
 
+    private float field_78153_i;
 
     public ModelSSheep2()
     {
@@ -32,6 +34,8 @@ public class ModelSSheep2 extends ModelQuadruped {
     public void setLivingAnimations(EntityLivingBase p_78086_1_, float p_78086_2_, float p_78086_3_, float p_78086_4_)
     {
         super.setLivingAnimations(p_78086_1_, p_78086_2_, p_78086_3_, p_78086_4_);
+        this.head.rotationPointY = 6.0F + ((EntitySteelSheep)p_78086_1_).neckRotation(p_78086_4_) * 9.0F;
+        this.field_78153_i = ((EntitySteelSheep)p_78086_1_).headRotation(p_78086_4_);
     }
 
     /**
@@ -42,6 +46,7 @@ public class ModelSSheep2 extends ModelQuadruped {
     public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_)
     {
         super.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
+        this.head.rotateAngleX = this.field_78153_i;
     }
 
 }

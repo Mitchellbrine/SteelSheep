@@ -2,7 +2,15 @@ death.attack.tetanus=%s was pricked to death by metal
 entity.SteelSheep.steelSheep.name=Steel Sheep
 
 item.SSheepSteelIngot.name=Steel Ingot
-item.
 
+item.SteelWoolItem.name=Steel Wool
+
+item.steelWoolBoots.name=Steel Wool Boots
+item.steelWoolLegs.name=Steel Wool Leggings
+item.steelWoolChest.name=Steel Wool Chestplate
+item.steelWoolHelmet.name=Steel Wool Helmet
+
+itemGroup.steelSheep=Steel Sheep - By Blorph & MBrine
 
 tile.steelWool.name=Steel Wool
+tile.SSheepSteelBlock.name=Steel Block

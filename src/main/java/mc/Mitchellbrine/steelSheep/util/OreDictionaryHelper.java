@@ -1,5 +1,6 @@
 package mc.Mitchellbrine.steelSheep.util;
 
+import mc.Mitchellbrine.steelSheep.block.BlockRegistry;
 import mc.Mitchellbrine.steelSheep.item.ItemRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -9,9 +10,8 @@ import net.minecraftforge.oredict.OreDictionary;
 public class OreDictionaryHelper {
 
     public static void init() {
-        if (ItemRegistry.steelIngot != null) {
             OreDictionary.registerOre("ingotSteel", ItemRegistry.steelIngot);
-        }
+            OreDictionary.registerOre("blockSteel", BlockRegistry.steelBlock);
     }
 
 }
