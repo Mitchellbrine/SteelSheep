@@ -6,4 +6,6 @@ package mc.Mitchellbrine.steelSheep.proxy;
 public class CommonProxy {
 
     public void renderStuff(){}
+
+    public int addArmorPrefix(String armor){return -1;}
 }

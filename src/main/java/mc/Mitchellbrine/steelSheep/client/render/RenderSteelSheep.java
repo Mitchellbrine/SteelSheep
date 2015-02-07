@@ -17,8 +17,8 @@ public class RenderSteelSheep extends RenderLiving {
     private static final ResourceLocation sheared = new ResourceLocation(References.MODID.toLowerCase(),"textures/entity/sheep/sheared.png");
 
     public RenderSteelSheep(ModelBase originalLayer,ModelBase unshearedLayer, float rotationValue) {
-        super(originalLayer,rotationValue);
-        this.setRenderPassModel(unshearedLayer);
+        super(unshearedLayer,rotationValue);
+        this.setRenderPassModel(originalLayer);
     }
 
     public int shouldRenderSheared(EntitySteelSheep sheep, int pass, float rotationValue) {

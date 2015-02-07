@@ -9,7 +9,9 @@ import net.minecraftforge.oredict.OreDictionary;
 public class OreDictionaryHelper {
 
     public static void init() {
-        OreDictionary.registerOre("ingotSteel", ItemRegistry.steelIngot);
+        if (ItemRegistry.steelIngot != null) {
+            OreDictionary.registerOre("ingotSteel", ItemRegistry.steelIngot);
+        }
     }
 
 }

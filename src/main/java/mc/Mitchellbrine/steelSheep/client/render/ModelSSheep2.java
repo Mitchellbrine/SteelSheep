@@ -1,5 +1,7 @@
 package mc.Mitchellbrine.steelSheep.client.render;
 
+import net.minecraft.client.model.ModelQuadruped;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelSheep2;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,22 +11,37 @@ import net.minecraft.util.MathHelper;
 /**
  * Created by Mitchellbrine on 2015.
  */
-public class ModelSSheep2 extends ModelSheep2 {
+public class ModelSSheep2 extends ModelQuadruped {
 
-    public void setLivingAnimations(EntityLivingBase p_78086_1_, float p_78086_2_, float p_78086_3_, float p_78086_4_)
+
+    public ModelSSheep2()
     {
+        super(12, 0.0F);
+        this.head = new ModelRenderer(this, 0, 0);
+        this.head.addBox(-3.0F, -4.0F, -6.0F, 6, 6, 8, 0.0F);
+        this.head.setRotationPoint(0.0F, 6.0F, -8.0F);
+        this.body = new ModelRenderer(this, 28, 8);
+        this.body.addBox(-4.0F, -10.0F, -7.0F, 8, 16, 6, 0.0F);
+        this.body.setRotationPoint(0.0F, 5.0F, 2.0F);
     }
 
+    /**
+     * Used for easily adding entity-dependent animations. The second and third float params here are the same second
+     * and third as in the setRotationAngles method.
+     */
+    public void setLivingAnimations(EntityLivingBase p_78086_1_, float p_78086_2_, float p_78086_3_, float p_78086_4_)
+    {
+        super.setLivingAnimations(p_78086_1_, p_78086_2_, p_78086_3_, p_78086_4_);
+    }
+
+    /**
+     * Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms
+     * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
+     * "far" arms and legs can swing at most.
+     */
     public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_)
     {
-        float f6 = (180F / (float)Math.PI);
-        this.head.rotateAngleX = p_78087_5_ / (180F / (float)Math.PI);
-        this.head.rotateAngleY = p_78087_4_ / (180F / (float)Math.PI);
-        this.body.rotateAngleX = ((float)Math.PI / 2F);
-        this.leg1.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F) * 1.4F * p_78087_2_;
-        this.leg2.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
-        this.leg3.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F + (float)Math.PI) * 1.4F * p_78087_2_;
-        this.leg4.rotateAngleX = MathHelper.cos(p_78087_1_ * 0.6662F) * 1.4F * p_78087_2_;
+        super.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
     }
 
 }

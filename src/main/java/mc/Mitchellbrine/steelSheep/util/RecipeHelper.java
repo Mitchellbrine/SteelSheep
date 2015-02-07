@@ -13,11 +13,14 @@ import net.minecraft.item.ItemStack;
 public class RecipeHelper {
 
     public static void init() {
-        if (Loader.isModLoaded("SAndS") && Loader.instance().getActiveModList().size() == 5) {
+        if (Loader.instance().getActiveModList().size() == 4 && !Loader.isModLoaded("RailCraft") && !Loader.isModLoaded("Metallurgy") && !Loader.isModLoaded("Artifice") && !Loader.isModLoaded("TConstruct") && !Loader.isModLoaded("Mekanism")) {
             GameRegistry.addSmelting(BlockRegistry.steelWool, new ItemStack(Items.iron_ingot, 1), 0.3F);
         } else {
             GameRegistry.addSmelting(BlockRegistry.steelWool, new ItemStack(ItemRegistry.steelIngot, 1), 0.3F);
         }
+
+        GameRegistry.addRecipe(new ItemStack(BlockRegistry.steelWool),"XX","XX",'X',ItemRegistry.steelWool);
+
     }
 
 }
