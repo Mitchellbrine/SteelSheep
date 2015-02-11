@@ -30,7 +30,7 @@ public class EntityAIEatMetal extends EntityAIBase
 			int i = MathHelper.floor_double(this.field_151500_b.posX);
 			int j = MathHelper.floor_double(this.field_151500_b.posY);
 			int k = MathHelper.floor_double(this.field_151500_b.posZ);
-			return this.field_151501_c.getBlock(i, j, k) == Blocks.iron_ore;
+			return this.field_151501_c.getBlock(i, j - 1, k) == Blocks.iron_ore;
 		}
 	}
 
@@ -72,7 +72,7 @@ public class EntityAIEatMetal extends EntityAIBase
 			int j = MathHelper.floor_double(this.field_151500_b.posY);
 			int k = MathHelper.floor_double(this.field_151500_b.posZ);
 
-			if (this.field_151501_c.getBlock(i, j, k) == Blocks.iron_ore)
+			if (this.field_151501_c.getBlock(i, j - 1, k) == Blocks.iron_ore)
 			{
 				if (this.field_151501_c.getGameRules().getGameRuleBooleanValue("mobGriefing"))
 				{
