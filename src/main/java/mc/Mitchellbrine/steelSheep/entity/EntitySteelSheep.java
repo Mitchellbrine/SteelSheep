@@ -30,6 +30,7 @@ import java.util.Random;
 public class EntitySteelSheep extends EntityAnimal implements SSheepEntity, IShearable, IAnimals{
 
     public static DamageSource tetanus;
+    private static DamageSource steelSheep = new DamageSource("sSheep");
 
     private int sheepTimer;
 
@@ -93,7 +94,7 @@ public class EntitySteelSheep extends EntityAnimal implements SSheepEntity, IShe
         super.collideWithEntity(entity);
         if (!(entity instanceof EntitySteelSheep)) {
             if (entity instanceof EntityLivingBase) {
-                ((EntityLivingBase)entity).attackEntityFrom(tetanus,0.5F);
+                ((EntityLivingBase)entity).attackEntityFrom(steelSheep,0.5F);
                 ((EntityLivingBase)entity).motionY = 0.41999998688697815D;
 
                 if (((EntityLivingBase)entity).isPotionActive(Potion.jump))

@@ -21,7 +21,7 @@ public class BlockRegistry {
 
     public static void init() {
 
-        steelWool = new SSheepBlock(Material.cloth).setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("steelWool").setBlockTextureName(References.MODID.toLowerCase() + ":steelWool");
+        steelWool = new BlockSteelWool(Material.cloth).setHardness(0.8F).setStepSound(Block.soundTypeCloth).setBlockName("steelWool").setBlockTextureName(References.MODID.toLowerCase() + ":steelWool");
         steelBlock = new SSheepBlock(Material.iron).setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockName("SSheepSteelBlock").setBlockTextureName(References.MODID.toLowerCase() + ":steelBlock");
 
         // Now you're done with all the blocks

@@ -12,8 +12,12 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 /**
  * Created by Mitchellbrine on 2015.
@@ -105,6 +109,19 @@ public class SteelWoolArmor extends ItemArmor {
 	}
 
 	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List lore, boolean par4) {
+		if (lore.contains(StatCollector.translateToLocal("enchantment.thorns") + " " + StatCollector.translateToLocal("enchantment.level.1"))){
+			lore.remove(StatCollector.translateToLocal("enchantment.thorns") + " " + StatCollector.translateToLocal("enchantment.level.1"));
+		}
+
+		/*
+		enchantment.thorns=Thorns
+
+		enchantment.level.1=I
+		*/
+	}
+
+	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean par5) {
 		if (!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
@@ -127,5 +144,13 @@ public class SteelWoolArmor extends ItemArmor {
 		if (!hasThorns) {
 			stack.addEnchantment(Enchantment.thorns,1);
 		}
+	}
+
+	@Override
+	public boolean hasEffect(ItemStack stack, int pass) {
+		if (stack.hasTagCompound() && stack.getEnchantmentTagList().tagCount() > 1) {
+			return true;
+		}
+		return false;
 	}
 }
