@@ -26,7 +26,7 @@ public class SSEntityRegistry {
         EntityList.entityEggs.put(newId,new EntityList.EntityEggInfo(newId,((SSheepEntity) entity).getEggColors()[0],((SSheepEntity) entity).getEggColors()[1]));
 
         if (entity instanceof EntityLiving) {
-            EntityRegistry.addSpawn(((EntityLiving)entity).getClass(), 80, 2, 4, EnumCreatureType.ambient, ((SSheepEntity) entity).getBiomeList());
+            EntityRegistry.addSpawn(((EntityLiving)entity).getClass(), 30, 2, 4, EnumCreatureType.ambient, ((SSheepEntity) entity).getBiomeList());
         }
 
         SteelSheep.logger.info("Registered the entity " + entity + " successfully! (Name: " + EntityList.stringToClassMapping.get(entity.getClass()) + ")");
